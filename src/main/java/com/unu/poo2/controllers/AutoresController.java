@@ -18,49 +18,14 @@ import com.unu.poo2.model.AutoresModel;
  */
 public class AutoresController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	
     
     AutoresModel modelo = new AutoresModel();
     
-	 protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-	 throws ServletException, IOException {
-		 response.setContentType("text/html;charset=UTF-8");
-		 try (PrintWriter out = response.getWriter()) {
-			 if(request.getParameter("op")==null){
-			 listar(request, response);
-			 	return;
-			 }
-			 String operacion = request.getParameter("op");
-			 
-			 switch (operacion) {
-			 case "listar":
-				 listar(request, response);
-			 break;
-			 /*
-			 case "nuevo":
-				 request.getRequestDispatcher("/autores/nuevoAutor.jsp").forward(request, response);
-			 break;
-			 case "insertar":
-				 insertar(request, response);
-			 break;
-			 case "obtener":
-				 obtener(request, response);
-			 break;
-			 case "modificar":
-				 modificar(request, response);
-			 break;
-			 case "eliminar":
-				 eliminar(request, response);
-			 break;*/
-			 }
-		 }
-	 }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	 protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
 		 if (request.getParameter("op")==null) {
-			//listar(request,response)
+			 listar(request,response);
 			 return;
 		}
 	 }
